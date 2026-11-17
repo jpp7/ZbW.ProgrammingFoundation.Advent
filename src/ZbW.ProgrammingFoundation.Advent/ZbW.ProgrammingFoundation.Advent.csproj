@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ZbW.ProgrammingFoundation.Advent</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="**\README.md" />
+    <None Include="**\Quiz.md" />
+  </ItemGroup>
+
+</Project>
