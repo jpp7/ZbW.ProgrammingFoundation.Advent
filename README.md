@@ -7,6 +7,16 @@ In diesem Repository schreibst du den Code dazu.
 
 > Freiwillig. Jedes Türchen bleibt offen, nachholen ist okay.
 
+## Schnellstart
+
+| | |
+|---|---|
+| **Voraussetzung** | Windows (x64), [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0), Rider oder Visual Studio 2026 |
+| **Öffnen** | `src/ZbW.ProgrammingFoundation.Advent.sln` |
+| **Starten** | Projekt starten, im Menü `1` eingeben (deine Version von Tag 1) – `1L` zeigt die Lösung |
+
+Fork und Klonen: siehe [Für Studierende](#für-studierende).
+
 ## Die Story
 
 **Die Weihnachtswerkstatt:** Der Weihnachtsmann digitalisiert seine Werkstatt, und du hilfst jeden Tag mit einem kleinen Programm.

@@ -18,7 +18,7 @@ In `EndlosWerkbank.cs` stecken **drei Fehler**:
 
 Behebe alle drei und schreib zu jedem einen kurzen Kommentar: Warum war das ein Problem?
 
-> ⚠️ Startest du die Werkbank unverändert (Menü `10`), läuft sie endlos. Abbrechen mit **Ctrl+C**. Besser: zuerst den Code lesen.
+> ⚠️ Startest du die Werkbank unverändert (Menü `10`), läuft sie endlos – das gehört zur Übung. Abbrechen mit **Ctrl+C** oder im Debugger mit **Pause** (Rider/Visual Studio: «Break All»): Dann siehst du, in welcher Zeile die Schleife hängt und welchen Wert `built` hat. Besser noch: zuerst den Code lesen.
 
 ## Hinweis
 
