@@ -68,16 +68,16 @@ Block: 03 · Spickzettel: 03.07 (Schleifen)
 
 > Darum passt `do-while` gut zur Eingabeprüfung: zuerst fragen, dann prüfen, bei Bedarf nochmals fragen.
 
-## 7. Wie viele Elemente hat eine `List<string> names` – und wie viele ein Array `string[] wishes`?
+## 7. Welche **Eigenschaften** (Properties, ohne Klammern) liefern die Anzahl Elemente einer `List<string> names` und eines Arrays `string[] wishes`?
 
 Block: 04–05 · Spickzettel: 04.07 (Arrays), 05.07 (List)
 
 - [ ] `names.Length` und `wishes.Count`
 - [x] `names.Count` und `wishes.Length`
-- [ ] Beide mit `.Size`
-- [ ] Beide mit `.Count()`
+- [ ] `names.Size` und `wishes.Size`
+- [ ] `names.Items` und `wishes.Items`
 
-> Arrays haben `.Length`, Listen `.Count`. `.Length` bei einer Liste kompiliert nicht.
+> Arrays haben die Eigenschaft `.Length`, Listen `.Count`. `.Length` bei einer Liste kompiliert nicht. (Die LINQ-Methode `.Count()` mit Klammern funktioniert bei beiden – sie ist aber eine Methode, keine Eigenschaft, und kommt erst später im Kurs.)
 
 ## 8. Was passiert bei `dict["Schlitten"]`, wenn der Key fehlt?
 
