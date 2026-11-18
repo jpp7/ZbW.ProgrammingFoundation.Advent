@@ -119,7 +119,7 @@ public static class GuetzliBaeckereiLoesung
     decimal discountPercent = GetDiscountPercent(sheets);
     decimal costAfter = costBefore * (100 - discountPercent) / 100;
 
-    Console.WriteLine($"\n{sheets} Blech(e) {type}");
+    Console.WriteLine($"\n{sheets} {(sheets == 1 ? "Blech" : "Bleche")} {type}");
     Console.WriteLine($"Mehl:      {totalFlour} g");
     Console.WriteLine($"Zucker:    {totalSugar} g");
     Console.WriteLine($"Backzeit:  {bakeMinutes} Min. pro Blech");

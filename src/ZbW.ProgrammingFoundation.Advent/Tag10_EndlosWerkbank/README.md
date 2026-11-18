@@ -22,9 +22,9 @@ Behebe alle drei und schreib zu jedem einen kurzen Kommentar: Warum war das ein 
 
 ## Hinweis
 
-- Die Werkbank baut pro Durchgang 3 Spielzeuge. Erreicht der Zähler je **genau** 10?
+- Die Werkbank baut pro Durchgang 3 Spielzeuge. Erreicht der Zähler je **genau** 10? Und wenn du es korrigierst: Ist 12 statt 10 okay? (Für die Werkstatt ja – gemeint ist «mindestens 10».)
 - Ein `Random` gehört einmal vor die Schleife. In älterem .NET lieferten schnell hintereinander erzeugte Objekte sogar dieselben Zahlen; heute ist es vor allem unnötig und unklar.
-- Ein leerer `catch { }` versteckt Fehler. Fang nur, was du erwartest (`FormatException`), und gib eine Meldung aus. Noch besser: `TryParse`.
+- Ein leerer `catch { }` versteckt Fehler. Fang nur, was du erwartest, und gib eine Meldung aus. Bei `int.Parse` sind das zwei Fälle: `FormatException` (`viele`) und `OverflowException` (`99999999999`). Ohne Exceptions geht es mit `int.TryParse`.
 - Spickzettel Block 03 (03.07): Schleifen, `Random`, `try/catch`.
 
 ## Lösung

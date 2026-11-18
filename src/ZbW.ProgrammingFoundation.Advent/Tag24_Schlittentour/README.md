@@ -6,7 +6,7 @@
 
 ## Story
 
-Heiligabend. Der Schlitten steht bereit, die Rentiere scharren mit den Hufen, und die Werkstatt hat drei Wochen lang Programme geschrieben. Jetzt kommt alles zusammen: Geschenke laden, Tour fliegen, Rentiere bei Laune halten – und am Schluss eine Übersicht für den Weihnachtsmann.
+Heiligabend. Der Schlitten steht bereit, die Rentiere scharren mit den Hufen, und die Werkstatt hat drei Wochen lang Programme geschrieben. Jetzt kommt alles zusammen: Geschenke laden, Tour fliegen, Rentiere bei Laune halten – und am Schluss eine Übersicht für den Weihnachtsmann. Wegen dichtem Nebel über dem Bodensee fliegt der Schlitten heute grosse Umwege, darum sind die Etappen so lang.
 
 ## Aufgabe
 
@@ -49,6 +49,10 @@ Tour (Ort, km):
 
 Team: Rudolph, Comet, Blitzen
 ```
+
+### Selbstcheck
+
+Mit den Vorgaben und in dieser Ladereihenfolge sollte deine Tour so enden: **5 Geschenke** abgeliefert, **1 Geschenk** abgelehnt (der Schlitten), **1050 km** geflogen, jedes Rentier hat am Schluss **25 Energie**. Gewichte wie an Tag 21 mit zwei Nachkommastellen (`12.50 kg`).
 
 ## Hinweis
 

@@ -83,6 +83,7 @@ public class ReturnDesk
 
     foreach (KeyValuePair<ReturnReason, int> entry in CountReasons())
     {
+      // > statt >=: Bei Gleichstand bleibt der Grund, der zuerst gezählt wurde.
       if (entry.Value > bestCount)
       {
         best = entry.Key;

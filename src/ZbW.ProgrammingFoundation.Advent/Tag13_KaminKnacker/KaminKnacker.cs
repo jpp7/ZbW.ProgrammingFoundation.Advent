@@ -37,21 +37,33 @@ public static class KaminKnacker
   }
 
   /// <summary>
+  ///   Zeigt pro Stelle, ob die Ziffer stimmt: "✓" richtig, "·" falsch, z. B. "✓ · ✓".
+  /// </summary>
+  /// <param name="code">Der geheime Code (3 Ziffern).</param>
+  /// <param name="guess">Der bereits geprüfte Rateversuch.</param>
+  public static string BuildHint(string code, string guess)
+  {
+    // TODO 4: string hint = ""; für jede Stelle "✓" oder "·" anhängen (mit Leerzeichen dazwischen)
+
+    throw new NotImplementedException("TODO: BuildHint implementieren");
+  }
+
+  /// <summary>
   ///   Startet das Spiel Kamin-Knacker.
   /// </summary>
   public static void Start()
   {
-    // TODO 4: Code erzeugen: new Random().Next(0, 1000).ToString("D3")
+    // TODO 5: Code erzeugen: new Random().Next(0, 1000).ToString("D3")
 
-    // TODO 5: try { ... } finally { Console.WriteLine("Kamin geschlossen."); }
+    // TODO 6: try { ... } finally { Console.WriteLine("Kamin geschlossen."); }
 
-    // TODO 6: Im try: Schleife, solange attempts < MaxAttempts und noch nicht geknackt
+    // TODO 7: Im try: Schleife, solange attempts < MaxAttempts und noch nicht geknackt
     //         - Eingabe lesen
     //         - try { int correct = CountCorrectDigits(code, input); attempts++; ... }
     //           catch (ArgumentException ex) { Console.WriteLine(ex.Message); }
-    //         - Meldung: $"{correct} Ziffern richtig an richtiger Stelle"
+    //         - Meldung, z. B. "✓ · ✓   (2 Ziffern richtig)" – bei 1 heisst es "Ziffer"
 
-    // TODO 7: Nach der Schleife: Glückwunsch mit Anzahl Versuchen oder Code verraten
+    // TODO 8: Nach der Schleife: Glückwunsch mit Anzahl Versuchen oder Code verraten
 
     throw new NotImplementedException("TODO: Start implementieren");
   }

@@ -42,6 +42,6 @@ public class Gift
 
   public override string ToString()
   {
-    return $"{Name} für {Recipient} in {City} ({Weight:F1} kg)";
+    return $"{Name} für {Recipient} in {City} ({Weight:F2} kg)";
   }
 }

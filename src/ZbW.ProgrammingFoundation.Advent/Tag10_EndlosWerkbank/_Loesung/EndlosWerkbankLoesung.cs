@@ -23,6 +23,7 @@ public static class EndlosWerkbankLoesung
 
     // FIX 1: built springt 0, 3, 6, 9, 12, ... und ist nie genau 10.
     //        Mit < statt != stoppt die Schleife, sobald 10 erreicht oder überschritten sind.
+    //        Es werden also 12 gebaut – für die Werkstatt okay, es sollten «mindestens 10» sein.
     while (built < 10)
     {
       string toy = toyNames[random.Next(toyNames.Length)];
@@ -43,6 +44,11 @@ public static class EndlosWerkbankLoesung
       //        Ein leerer catch versteckt jeden Fehler – auch solche, die man sehen müsste.
       //        Alternative ohne Exception: int.TryParse.
       Console.WriteLine("Das war keine ganze Zahl. Es wurde nichts eingepackt.");
+    }
+    catch (OverflowException)
+    {
+      // Auch erwartbar: eine ganze Zahl, die nicht in einen int passt (z. B. 99999999999).
+      Console.WriteLine("So viele Spielzeuge gibt es nicht. Es wurde nichts eingepackt.");
     }
   }
 }

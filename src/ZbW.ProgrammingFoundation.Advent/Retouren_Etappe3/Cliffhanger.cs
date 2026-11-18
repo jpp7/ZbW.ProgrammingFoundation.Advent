@@ -19,8 +19,8 @@ public static class Cliffhanger
   {
     Console.WriteLine("=== Cliffhanger ===\n");
 
-    _Loesung.Return a = new("Velo", "Lena", 299m, _Loesung.ReturnReason.Disliked);
-    _Loesung.Return b = new("Velo", "Lena", 299m, _Loesung.ReturnReason.Disliked);
+    _Loesung.Return a = new("Lena", "Velo", 299m, _Loesung.ReturnReason.Disliked);
+    _Loesung.Return b = new("Lena", "Velo", 299m, _Loesung.ReturnReason.Disliked);
     Console.WriteLine($"a == b: {a == b}");   // ???
 
     // Bonus: dasselbe mit zwei gleichen Texten

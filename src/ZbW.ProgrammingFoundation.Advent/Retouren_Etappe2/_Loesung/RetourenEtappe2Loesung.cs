@@ -211,6 +211,7 @@ public static class RetourenEtappe2Loesung
     int bestCount = 0;
     foreach (KeyValuePair<ReturnReason, int> entry in counts)
     {
+      // > statt >=: Bei Gleichstand bleibt der Grund, der zuerst gezählt wurde.
       if (entry.Value > bestCount)
       {
         best = entry.Key;

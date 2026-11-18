@@ -16,12 +16,12 @@ Baue dein Programm aus Etappe 1 auf **Methoden** und **Collections** um. Arbeite
 2. Ergänze die Auswertung, **ohne LINQ**:
    - Ein `Dictionary<ReturnReason, int>` zählt die Gründe.
    - Ein `Dictionary<string, decimal>` summiert die Rückerstattung pro Kind.
-   - `ReturnReason MostCommonReason(...)`
+   - `ReturnReason MostCommonReason(...)` – bei Gleichstand gewinnt der Grund, der zuerst gezählt wurde (mit `>` vergleichen, nicht mit `>=`)
    - `decimal TotalRefund(...)`
    - `string ReportFor(..., string child)` – Bericht für ein Kind
    - `bool TryFindMostExpensive(..., out string article, out decimal price)`
    - `void PrintReport(..., string title = "Retouren-Bericht")` mit optionalem Titel
-3. Beim Start werden **10 Beispiel-Retouren** vorbelegt, damit du direkt auswerten kannst.
+3. Beim Start werden **10 Beispiel-Retouren** vorbelegt, damit du direkt auswerten kannst. Die Daten liegen als fertige Methode `AddSampleData` in `RetourenEtappe2.cs` – kopiere sie in deine Lösung, dann kannst du deinen Bericht mit `E2L` vergleichen.
 4. Das Menü bekommt neue Punkte: `3 = Bericht`, `4 = Bericht für ein Kind`.
 
 Die `...` stehen für die Listen, die die Methode braucht. Starten im Menü mit `E2`.

@@ -40,6 +40,26 @@ public static class KaminKnackerLoesung
   }
 
   /// <summary>
+  ///   Zeigt pro Stelle, ob die Ziffer stimmt: "✓" richtig, "·" falsch, z. B. "✓ · ✓".
+  ///   Wird erst aufgerufen, wenn CountCorrectDigits die Eingabe geprüft hat.
+  /// </summary>
+  public static string BuildHint(string code, string guess)
+  {
+    string hint = "";
+    for (int i = 0; i < CodeLength; i++)
+    {
+      if (i > 0)
+      {
+        hint += " ";
+      }
+
+      hint += code[i] == guess[i] ? "✓" : "·";
+    }
+
+    return hint;
+  }
+
+  /// <summary>
   ///   Startet das Spiel Kamin-Knacker.
   /// </summary>
   public static void Start()
@@ -69,7 +89,8 @@ public static class KaminKnackerLoesung
 
         try
         {
-          int correct = CountCorrectDigits(code, input.Trim());
+          string guess = input.Trim();
+          int correct = CountCorrectDigits(code, guess);
           attempts++;
 
           if (correct == CodeLength)
@@ -78,7 +99,8 @@ public static class KaminKnackerLoesung
           }
           else
           {
-            Console.WriteLine($"{correct} Ziffern richtig an richtiger Stelle");
+            string digits = correct == 1 ? "Ziffer" : "Ziffern";
+            Console.WriteLine($"{BuildHint(code, guess)}   ({correct} {digits} richtig)");
           }
         }
         catch (ArgumentException ex)
@@ -90,7 +112,8 @@ public static class KaminKnackerLoesung
 
       if (isCracked)
       {
-        Console.WriteLine($"🎁 Geknackt in {attempts} Versuch(en)!");
+        string tries = attempts == 1 ? "Versuch" : "Versuchen";
+        Console.WriteLine($"🎁 Geknackt in {attempts} {tries}!");
       }
       else
       {

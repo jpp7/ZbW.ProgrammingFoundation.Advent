@@ -29,7 +29,7 @@ Pro Retoure werden erfasst:
 
 Das `enum ReturnReason { WrongSize, Duplicate, Broken, Disliked }` ist schon da.
 
-- Gespeichert wird in **parallelen Listen** (`List<string> children`, `List<string> articles`, `List<decimal> prices`, `List<ReturnReason> reasons`): Der Eintrag mit Index `i` gehört in allen vier Listen zur selben Retoure.
+- Gespeichert wird in **vier Listen mit gemeinsamem Index** (`List<string> children`, `List<string> articles`, `List<decimal> prices`, `List<ReturnReason> reasons`): Der Eintrag mit Index `i` gehört in allen vier Listen zur selben Retoure. Merk dir, wie sich das anfühlt – in Etappe 3 räumen wir damit auf.
 - Nach dem Erfassen: Bei `Broken` erscheint `"Elfen-Garantie: voller Betrag zurück"`, sonst gibt es 80 % zurück. Die Rückerstattung berechnest du mit dem **ternären Operator**.
 - Ungültige Eingaben werden mit einer Meldung wiederholt – das Programm stürzt nie ab.
 - «Anzeigen» listet alle Retouren mit Nummer, Kind, Artikel, Preis, Grund und Rückerstattung.

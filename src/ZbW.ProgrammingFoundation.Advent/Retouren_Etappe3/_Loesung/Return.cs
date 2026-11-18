@@ -23,25 +23,25 @@ public class Return
   /// <summary>
   ///   Erstellt eine Retoure.
   /// </summary>
-  /// <param name="article">Zurückgegebener Artikel.</param>
   /// <param name="child">Name des Kindes.</param>
+  /// <param name="article">Zurückgegebener Artikel.</param>
   /// <param name="price">Preis in CHF, grösser als 0.</param>
   /// <param name="reason">Grund der Retoure.</param>
   /// <exception cref="ArgumentException">Bei leerem Namen, leerem Artikel oder Preis ≤ 0.</exception>
-  public Return(string article, string child, decimal price, ReturnReason reason)
+  public Return(string child, string article, decimal price, ReturnReason reason)
   {
-    if (string.IsNullOrWhiteSpace(article))
-    {
-      throw new ArgumentException("Der Artikel darf nicht leer sein.");
-    }
-
     if (string.IsNullOrWhiteSpace(child))
     {
       throw new ArgumentException("Der Name des Kindes darf nicht leer sein.");
     }
 
-    Article = article.Trim();
+    if (string.IsNullOrWhiteSpace(article))
+    {
+      throw new ArgumentException("Der Artikel darf nicht leer sein.");
+    }
+
     Child = child.Trim();
+    Article = article.Trim();
     Price = price;
     Reason = reason;
   }

@@ -12,7 +12,7 @@ namespace ZbW.ProgrammingFoundation.Advent.Retouren_Etappe2;
 //   - Dictionary<string, decimal> summiert die Rückerstattung pro Kind
 //   - MostCommonReason, TotalRefund, ReportFor, TryFindMostExpensive (out),
 //     PrintReport (optionaler Titel), alles ohne LINQ
-//   - 10 Beispiel-Retouren beim Start
+//   - 10 Beispiel-Retouren beim Start (AddSampleData ist unten schon fertig)
 //
 // Aufgabe und Details: siehe README.md
 // ============================================================
@@ -181,5 +181,30 @@ public static class RetourenEtappe2
     }
 
     Console.WriteLine("Retouren-Werkstatt geschlossen.");
+  }
+
+  /// <summary>
+  ///   Belegt die Listen mit 10 Beispiel-Retouren.
+  ///   Fertig vorgegeben: Kopiere die Methode in deine Lösung und rufe sie beim Start auf,
+  ///   dann lässt sich dein Bericht mit E2L vergleichen.
+  /// </summary>
+  public static void AddSampleData(List<string> children, List<string> articles, List<decimal> prices, List<ReturnReason> reasons)
+  {
+    string[] sampleChildren = { "Lena", "Noah", "Mia", "Lena", "Elias", "Sofia", "Noah", "Mia", "Lars", "Lena" };
+    string[] sampleArticles = { "Pulli", "Buch", "Kreisel", "Lego", "Helm", "Malkasten", "Velo", "Puppe", "Teddy", "Handschuhe" };
+    decimal[] samplePrices = { 49.90m, 24.90m, 12.50m, 89.00m, 59.00m, 19.90m, 299.00m, 34.90m, 29.90m, 15.00m };
+    ReturnReason[] sampleReasons =
+    {
+      ReturnReason.WrongSize, ReturnReason.Duplicate, ReturnReason.Broken, ReturnReason.Disliked, ReturnReason.WrongSize,
+      ReturnReason.Duplicate, ReturnReason.Disliked, ReturnReason.WrongSize, ReturnReason.Broken, ReturnReason.WrongSize
+    };
+
+    for (int i = 0; i < sampleChildren.Length; i++)
+    {
+      children.Add(sampleChildren[i]);
+      articles.Add(sampleArticles[i]);
+      prices.Add(samplePrices[i]);
+      reasons.Add(sampleReasons[i]);
+    }
   }
 }

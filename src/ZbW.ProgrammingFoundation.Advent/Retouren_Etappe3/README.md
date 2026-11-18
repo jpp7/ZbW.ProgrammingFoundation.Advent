@@ -6,7 +6,7 @@
 
 ## Story
 
-Bald geht der Unterricht weiter. Die Retouren-Werkstatt läuft, aber der Code ist unübersichtlich: Vier Listen, die immer zusammenpassen müssen, und Methoden mit fünf Parametern. Höchste Zeit, aufzuräumen – mit Klassen. Und ganz am Schluss wartet ein Rätsel.
+Bald geht der Unterricht weiter. Die Retouren-Werkstatt läuft, aber der Code ist unübersichtlich: **vier Listen mit gemeinsamem Index**, die immer zusammenpassen müssen, und Methoden mit fünf Parametern. Eine Retoure ist in Wahrheit ein Ding – also gehört sie in ein Objekt. Höchste Zeit, aufzuräumen – mit Klassen. Und ganz am Schluss wartet ein Rätsel.
 
 ## Aufgabe
 
@@ -18,11 +18,11 @@ Bald geht der Unterricht weiter. Die Retouren-Werkstatt läuft, aber der Code is
    - Properties `Child`, `Article`, `Price` und `Reason`
    - `Price` wird validiert: ≤ 0 löst eine `ArgumentException` aus
    - Read-only `Refund`, **berechnet** (defekt 100 %, sonst 80 %)
-   - Konstruktor `Return(string article, string child, decimal price, ReturnReason reason)`
+   - Konstruktor `Return(string child, string article, decimal price, ReturnReason reason)` – gleiche Reihenfolge wie die Properties
    - `ToString()` für eine Tabellenzeile
 2. Klasse **`ReturnDesk`** in `ReturnDesk.cs`:
    - Eine **private** `List<Return>`
-   - Methoden `Add(Return r)`, `TotalRefund()`, `MostCommonReason()`, `ReportFor(string child)`
+   - Methoden `Add(Return r)`, `TotalRefund()`, `MostCommonReason()` (Gleichstand wie in Etappe 2), `ReportFor(string child)`
    - Von aussen lässt sich die Liste nicht verändern (Kapselung).
 3. `RetourenEtappe3.cs` enthält danach nur noch Menü, Ein- und Ausgabe. Jede Klasse steht in ihrer eigenen Datei.
 
@@ -33,8 +33,8 @@ Starten im Menü mit `E3`.
 Zum Schluss ein Rätsel – **ohne Lösung**:
 
 ```csharp
-Return a = new("Velo", "Lena", 299m, ReturnReason.Disliked);
-Return b = new("Velo", "Lena", 299m, ReturnReason.Disliked);
+Return a = new("Lena", "Velo", 299m, ReturnReason.Disliked);
+Return b = new("Lena", "Velo", 299m, ReturnReason.Disliked);
 Console.WriteLine(a == b);   // ???
 ```
 

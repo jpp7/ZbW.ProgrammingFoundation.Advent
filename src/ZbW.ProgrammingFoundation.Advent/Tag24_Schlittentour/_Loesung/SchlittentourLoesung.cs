@@ -36,7 +36,7 @@ public static class SchlittentourLoesung
       }
     }
 
-    Console.WriteLine($"Geladen: {sleigh.GiftCount} Geschenke, {sleigh.CurrentLoad:F1} von {sleigh.MaxLoad:F1} kg\n");
+    Console.WriteLine($"Geladen: {GiftsText(sleigh.GiftCount)}, {sleigh.CurrentLoad:F2} von {sleigh.MaxLoad:F2} kg\n");
 
     // 2. Team und Tour
     List<Reindeer> team = new List<Reindeer>
@@ -82,7 +82,7 @@ public static class SchlittentourLoesung
       List<Gift> delivered = sleigh.Unload(city);
       deliveredCount += delivered.Count;
 
-      Console.WriteLine($"✈️  {city} ({km} km): {delivered.Count} Geschenk(e) abgeliefert");
+      Console.WriteLine($"✈️  {city} ({km} km): {GiftsText(delivered.Count)} abgeliefert");
       foreach (Gift gift in delivered)
       {
         Console.WriteLine($"     🎁 {gift}");
@@ -91,8 +91,8 @@ public static class SchlittentourLoesung
 
     // 4. Übersicht
     Console.WriteLine("\n=== Tourübersicht ===");
-    Console.WriteLine($"Abgeliefert:    {deliveredCount} Geschenke");
-    Console.WriteLine($"Nicht geladen:  {rejected.Count} Geschenke");
+    Console.WriteLine($"Abgeliefert:    {GiftsText(deliveredCount)}");
+    Console.WriteLine($"Nicht geladen:  {GiftsText(rejected.Count)}");
     Console.WriteLine($"Noch im Schlitten: {sleigh.GiftCount}");
     Console.WriteLine($"Gesamtdistanz:  {totalDistance} km");
     foreach (Reindeer reindeer in team)
@@ -110,5 +110,13 @@ public static class SchlittentourLoesung
     }
 
     Console.WriteLine("\nFrohe Weihnachten! 🎄");
+  }
+
+  /// <summary>
+  ///   "1 Geschenk" oder "3 Geschenke" – Einzahl oder Mehrzahl.
+  /// </summary>
+  private static string GiftsText(int count)
+  {
+    return count == 1 ? "1 Geschenk" : $"{count} Geschenke";
   }
 }

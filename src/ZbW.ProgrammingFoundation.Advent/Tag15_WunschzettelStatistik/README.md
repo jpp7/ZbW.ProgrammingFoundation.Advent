@@ -31,7 +31,7 @@ Starten im Menü mit `15`.
 
 ## Hinweis
 
-Für `Max` startest du mit dem ersten Element (`values[0]`) statt mit 0 – sonst gäbe es bei lauter negativen Werten ein falsches Ergebnis. Rechtsbündig formatieren: `{value,6:F2}`. Spickzettel Block 04 (04.07): «Methoden überladen».
+Für `Max` startest du mit dem ersten Element (`values[0]`) statt mit 0 – sonst gäbe es bei lauter negativen Werten ein falsches Ergebnis. Grenzfall: Bei einem leeren Array gibt es kein `values[0]` (`IndexOutOfRangeException`), und `Average` würde durch 0 teilen. Hier kommen immer Werte; überleg dir trotzdem, was du in diesem Fall tun würdest. Rechtsbündig formatieren: `{value,6:F2}`. Spickzettel Block 04 (04.07): «Methoden überladen».
 
 ## Lösung
 

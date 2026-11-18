@@ -69,7 +69,7 @@ public static class RetourenEtappe3Loesung
 
     try
     {
-      Return r = new Return(article, child, price, reason);
+      Return r = new Return(child, article, price, reason);
       desk.Add(r);
 
       if (r.Reason == ReturnReason.Broken)
@@ -197,15 +197,15 @@ public static class RetourenEtappe3Loesung
   /// </summary>
   public static void AddSampleData(ReturnDesk desk)
   {
-    desk.Add(new Return("Pulli", "Lena", 49.90m, ReturnReason.WrongSize));
-    desk.Add(new Return("Buch", "Noah", 24.90m, ReturnReason.Duplicate));
-    desk.Add(new Return("Kreisel", "Mia", 12.50m, ReturnReason.Broken));
-    desk.Add(new Return("Lego", "Lena", 89.00m, ReturnReason.Disliked));
-    desk.Add(new Return("Helm", "Elias", 59.00m, ReturnReason.WrongSize));
-    desk.Add(new Return("Malkasten", "Sofia", 19.90m, ReturnReason.Duplicate));
-    desk.Add(new Return("Velo", "Noah", 299.00m, ReturnReason.Disliked));
-    desk.Add(new Return("Puppe", "Mia", 34.90m, ReturnReason.WrongSize));
-    desk.Add(new Return("Teddy", "Lars", 29.90m, ReturnReason.Broken));
-    desk.Add(new Return("Handschuhe", "Lena", 15.00m, ReturnReason.WrongSize));
+    desk.Add(new Return("Lena", "Pulli", 49.90m, ReturnReason.WrongSize));
+    desk.Add(new Return("Noah", "Buch", 24.90m, ReturnReason.Duplicate));
+    desk.Add(new Return("Mia", "Kreisel", 12.50m, ReturnReason.Broken));
+    desk.Add(new Return("Lena", "Lego", 89.00m, ReturnReason.Disliked));
+    desk.Add(new Return("Elias", "Helm", 59.00m, ReturnReason.WrongSize));
+    desk.Add(new Return("Sofia", "Malkasten", 19.90m, ReturnReason.Duplicate));
+    desk.Add(new Return("Noah", "Velo", 299.00m, ReturnReason.Disliked));
+    desk.Add(new Return("Mia", "Puppe", 34.90m, ReturnReason.WrongSize));
+    desk.Add(new Return("Lars", "Teddy", 29.90m, ReturnReason.Broken));
+    desk.Add(new Return("Lena", "Handschuhe", 15.00m, ReturnReason.WrongSize));
   }
 }
