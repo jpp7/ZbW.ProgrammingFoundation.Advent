@@ -20,38 +20,40 @@ public static class RetourenEtappe3Loesung
     Console.WriteLine($"{desk.Count} Beispiel-Retouren geladen.");
 
     bool isRunning = true;
-    while (isRunning)
+    try
     {
-      Console.WriteLine("\n1 = erfassen, 2 = anzeigen, 3 = Bericht, 4 = Bericht für ein Kind, 0 = beenden");
-      Console.Write("Auswahl: ");
-      string choice = Console.ReadLine();
-
-      if (choice == null)
+      while (isRunning)
       {
-        break;
-      }
+        Console.WriteLine("\n1 = erfassen, 2 = anzeigen, 3 = Bericht, 4 = Bericht für ein Kind, 0 = beenden");
+        string choice = ReadInput("Auswahl: ");
 
-      switch (choice.Trim())
-      {
-        case "1":
-          CaptureReturn(desk);
-          break;
-        case "2":
-          PrintList(desk);
-          break;
-        case "3":
-          PrintReport(desk);
-          break;
-        case "4":
-          Console.WriteLine(desk.ReportFor(ReadNonEmpty("Kind: ")));
-          break;
-        case "0":
-          isRunning = false;
-          break;
-        default:
-          Console.WriteLine("Unbekannte Auswahl.");
-          break;
+        switch (choice)
+        {
+          case "1":
+            CaptureReturn(desk);
+            break;
+          case "2":
+            PrintList(desk);
+            break;
+          case "3":
+            PrintReport(desk);
+            break;
+          case "4":
+            Console.WriteLine(desk.ReportFor(ReadNonEmpty("Kind: ")));
+            break;
+          case "0":
+            isRunning = false;
+            break;
+          default:
+            Console.WriteLine("Unbekannte Auswahl.");
+            break;
+        }
       }
+    }
+    catch (EndOfStreamException ex)
+    {
+      // Eingabe zu Ende (siehe ReadInput): Menü verlassen statt endlos weiterfragen.
+      Console.WriteLine($"\n{ex.Message}");
     }
 
     Console.WriteLine("Retouren-Werkstatt geschlossen.");
@@ -87,6 +89,25 @@ public static class RetourenEtappe3Loesung
   }
 
   /// <summary>
+  ///   Gibt den Prompt aus und liest eine Zeile ein (ohne Leerzeichen am Rand).
+  ///   Liefert Console.ReadLine() null, ist die Eingabe zu Ende (z. B. Ctrl+Z oder
+  ///   umgeleitete Eingabe) – danach kommt nie mehr etwas. Statt endlos weiterzufragen,
+  ///   wird eine EndOfStreamException ausgelöst; Start() fängt sie ab und verlässt das Menü.
+  /// </summary>
+  /// <exception cref="EndOfStreamException">Wenn die Eingabe zu Ende ist.</exception>
+  public static string ReadInput(string prompt)
+  {
+    Console.Write(prompt);
+    string input = Console.ReadLine();
+    if (input == null)
+    {
+      throw new EndOfStreamException("Eingabe beendet.");
+    }
+
+    return input.Trim();
+  }
+
+  /// <summary>
   ///   Liest einen nicht leeren Text ein.
   /// </summary>
   public static string ReadNonEmpty(string prompt)
@@ -94,8 +115,7 @@ public static class RetourenEtappe3Loesung
     string input;
     do
     {
-      Console.Write(prompt);
-      input = (Console.ReadLine() ?? "").Trim();
+      input = ReadInput(prompt);
       if (input == "")
       {
         Console.WriteLine("Die Eingabe darf nicht leer sein.");
@@ -112,8 +132,7 @@ public static class RetourenEtappe3Loesung
   {
     while (true)
     {
-      Console.Write(prompt);
-      if (!decimal.TryParse(Console.ReadLine(), out decimal price))
+      if (!decimal.TryParse(ReadInput(prompt), out decimal price))
       {
         Console.WriteLine("Das ist kein gültiger Betrag.");
       }
@@ -136,8 +155,7 @@ public static class RetourenEtappe3Loesung
     while (true)
     {
       Console.WriteLine("Grund: 1 = falsche Grösse, 2 = doppelt, 3 = defekt, 4 = gefällt nicht");
-      Console.Write("Grund: ");
-      switch ((Console.ReadLine() ?? "").Trim())
+      switch (ReadInput("Grund: "))
       {
         case "1": return ReturnReason.WrongSize;
         case "2": return ReturnReason.Duplicate;

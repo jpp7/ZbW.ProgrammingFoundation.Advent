@@ -9,9 +9,14 @@ public static class TuersteherLoesung
   public const int LastDoor = 24;
 
   /// <summary>
+  ///   Rückgabe, wenn die Eingabe zu Ende ist und keine Nummer mehr kommt.
+  /// </summary>
+  public const int NoDoor = 0;
+
+  /// <summary>
   ///   Fragt so lange nach, bis eine Zahl von 1 bis 24 eingegeben ist.
   /// </summary>
-  /// <returns>Die gültige Türchen-Nummer.</returns>
+  /// <returns>Die gültige Türchen-Nummer oder NoDoor, wenn die Eingabe zu Ende ist.</returns>
   public static int ReadDoorNumber()
   {
     int door;
@@ -20,8 +25,16 @@ public static class TuersteherLoesung
     do
     {
       Console.Write("Welches Türchen? ");
+      string input = Console.ReadLine();
 
-      if (!int.TryParse(Console.ReadLine(), out door))
+      // null = Eingabe zu Ende (z. B. Ctrl+Z). Ohne diese Prüfung fragt die Schleife endlos.
+      if (input == null)
+      {
+        Console.WriteLine("\nEingabe beendet.");
+        return NoDoor;
+      }
+
+      if (!int.TryParse(input, out door))
       {
         Console.WriteLine("Das ist keine Zahl.");
       }
@@ -45,6 +58,12 @@ public static class TuersteherLoesung
   {
     Console.WriteLine("=== Der geduldige Türsteher – Lösung ===\n");
     int door = ReadDoorNumber();
+    if (door == NoDoor)
+    {
+      Console.WriteLine("Kein Türchen geöffnet.");
+      return;
+    }
+
     Console.WriteLine($"Türchen {door} geöffnet!");
   }
 }

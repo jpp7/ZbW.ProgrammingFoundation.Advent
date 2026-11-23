@@ -17,6 +17,7 @@ Implementiere in `Tuersteher.cs` die Methode `static int ReadDoorNumber()`:
   - keine Zahl → `"Das ist keine Zahl."`
   - Zahl ausserhalb 1–24 → `"Türchen 1 bis 24, bitte."`
 - Rückgabe: die gültige Nummer.
+- Liefert `Console.ReadLine()` `null`, ist die Eingabe zu Ende (z. B. Ctrl+Z) und es kommt nie mehr etwas. Dann `"Eingabe beendet."` ausgeben und `NoDoor` (0) zurückgeben – sonst fragt die Schleife endlos.
 
 `Start()` ruft die Methode auf und gibt `"Türchen 7 geöffnet!"` aus. Starten im Menü mit `11`.
 

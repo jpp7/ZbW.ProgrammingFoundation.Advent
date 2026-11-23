@@ -56,11 +56,30 @@ public static class SchlittentourLoesung
     // 3. Tour fliegen
     int totalDistance = 0;
     int deliveredCount = 0;
+    List<string> skippedCities = new List<string>();
 
     foreach (KeyValuePair<string, int> stage in tour)
     {
       string city = stage.Key;
       int km = stage.Value;
+
+      // Zuerst: Schafft das Team die Etappe überhaupt? Braucht sie mehr als die maximale
+      // Energie, hilft auch Füttern nicht – die while-Schleife unten liefe endlos.
+      bool isTooLong = false;
+      foreach (Reindeer reindeer in team)
+      {
+        if (reindeer.GetCost(km) > Reindeer.MaxEnergy)
+        {
+          isTooLong = true;
+        }
+      }
+
+      if (isTooLong)
+      {
+        skippedCities.Add(city);
+        Console.WriteLine($"⛔ {city} ({km} km): Etappe zu lang für dieses Team");
+        continue;
+      }
 
       // Vor jeder Etappe: jedes Rentier muss genug Energie haben.
       foreach (Reindeer reindeer in team)
@@ -95,6 +114,11 @@ public static class SchlittentourLoesung
     Console.WriteLine($"Nicht geladen:  {GiftsText(rejected.Count)}");
     Console.WriteLine($"Noch im Schlitten: {sleigh.GiftCount}");
     Console.WriteLine($"Gesamtdistanz:  {totalDistance} km");
+    if (skippedCities.Count > 0)
+    {
+      Console.WriteLine($"Nicht angeflogen: {string.Join(", ", skippedCities)}");
+    }
+
     foreach (Reindeer reindeer in team)
     {
       Console.WriteLine($"  {reindeer}");

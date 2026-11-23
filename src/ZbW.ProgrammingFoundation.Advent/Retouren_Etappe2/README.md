@@ -30,6 +30,8 @@ Die `...` stehen für die Listen, die die Methode braucht. Starten im Menü mit 
 
 Zählen im Dictionary: `if (counts.ContainsKey(key)) counts[key]++; else counts[key] = 1;`. Bei `out` muss jeder Weg durch die Methode einen Wert zuweisen. Achte darauf, wie viele Listen du an jede Methode übergeben musst – in Etappe 3 räumen wir damit auf. Spickzettel Block 04 und 05.
 
+Liefert `Console.ReadLine()` `null`, ist die Eingabe zu Ende (z. B. Ctrl+Z) – dann soll das Programm sauber enden statt endlos nachzufragen. Die Musterlösung macht das mit einer Hilfsmethode `ReadInput(string prompt)`: Bei `null` löst sie eine `EndOfStreamException` aus, und ein `catch` um die Menüschleife beendet das Menü mit «Eingabe beendet.».
+
 ## Lösung
 
 `_Loesung/RetourenEtappe2Loesung.cs`, im Menü mit `E2L`.

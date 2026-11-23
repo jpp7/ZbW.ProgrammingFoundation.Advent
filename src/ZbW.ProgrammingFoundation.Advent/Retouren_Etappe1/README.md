@@ -2,7 +2,7 @@
 
 | Block | Format | Zeit |
 |---|---|---|
-| 01–03 | 🧩 Coden | 60–90′ |
+| 01–03, Listen aus Block 05 | 🧩 Coden | 60–90′ |
 
 ## Story
 
@@ -38,7 +38,7 @@ Starten im Menü mit `E1`. Bewahre deine Lösung auf – Etappe 2 baut darauf au
 
 ## Hinweis
 
-Für jede Eingabe eignet sich ein `do-while`, das wiederholt, bis die Eingabe gültig ist (wie beim Türsteher an Tag 11). Die Grund-Auswahl: Nummer 1–4 einlesen, dann `switch` auf `ReturnReason`. Rückerstattung: `decimal refund = reason == ReturnReason.Broken ? price : price * 0.8m;`. Spickzettel Block 01–03.
+Für jede Eingabe eignet sich ein `do-while`, das wiederholt, bis die Eingabe gültig ist (wie beim Türsteher an Tag 11). Die Grund-Auswahl: Nummer 1–4 einlesen, dann `switch` auf `ReturnReason`. Rückerstattung: `decimal refund = reason == ReturnReason.Broken ? price : price * 0.8m;`. Spickzettel Block 01–03, für die Listen Block 05.
 
 ## Lösung
 

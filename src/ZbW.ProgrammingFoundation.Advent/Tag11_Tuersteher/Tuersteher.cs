@@ -9,6 +9,7 @@ namespace ZbW.ProgrammingFoundation.Advent.Tag11_Tuersteher;
 //   - do-while mit int.TryParse
 //   - Gültig sind 1 bis 24
 //   - Meldung "Das ist keine Zahl." oder "Türchen 1 bis 24, bitte."
+//   - Eingabe zu Ende (ReadLine liefert null) → NoDoor zurückgeben
 // ============================================================
 
 public static class Tuersteher
@@ -17,9 +18,14 @@ public static class Tuersteher
   public const int LastDoor = 24;
 
   /// <summary>
+  ///   Rückgabe, wenn die Eingabe zu Ende ist und keine Nummer mehr kommt.
+  /// </summary>
+  public const int NoDoor = 0;
+
+  /// <summary>
   ///   Fragt so lange nach, bis eine Zahl von 1 bis 24 eingegeben ist.
   /// </summary>
-  /// <returns>Die gültige Türchen-Nummer.</returns>
+  /// <returns>Die gültige Türchen-Nummer oder NoDoor, wenn die Eingabe zu Ende ist.</returns>
   public static int ReadDoorNumber()
   {
     // TODO 1: Variablen: int door; bool isValid = false;
@@ -28,7 +34,10 @@ public static class Tuersteher
 
     // TODO 3: In der Schleife:
     //         - Console.Write("Welches Türchen? ");
-    //         - int.TryParse(...) → false: "Das ist keine Zahl."
+    //         - string input = Console.ReadLine();
+    //           input == null → die Eingabe ist zu Ende (z. B. Ctrl+Z), es kommt nie mehr
+    //           etwas: "Eingabe beendet." ausgeben und NoDoor zurückgeben (sonst Endlosschleife)
+    //         - int.TryParse(input, ...) → false: "Das ist keine Zahl."
     //         - sonst Bereich prüfen → ausserhalb: "Türchen 1 bis 24, bitte."
     //         - sonst isValid = true
 
@@ -43,6 +52,12 @@ public static class Tuersteher
   public static void Start()
   {
     int door = ReadDoorNumber();
+    if (door == NoDoor)
+    {
+      Console.WriteLine("Kein Türchen geöffnet.");
+      return;
+    }
+
     Console.WriteLine($"Türchen {door} geöffnet!");
   }
 }

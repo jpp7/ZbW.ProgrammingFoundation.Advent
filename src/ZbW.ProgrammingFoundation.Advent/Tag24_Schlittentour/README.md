@@ -28,6 +28,7 @@ Du brauchst drei Klassen, jede in ihrer eigenen Datei (Gerüste liegen bereit):
 2. Ein Team als `List<Reindeer>` mit drei Rentieren.
 3. Die Tour als `Dictionary<string, int>` (Ort → Distanz in km).
 4. Vor jeder Etappe prüfen, ob **jedes** Rentier genug Energie hat. Falls nicht, wird es gefüttert, bis es reicht.
+   Braucht eine Etappe mehr Energie, als ein Rentier überhaupt haben kann (mehr als 100 Energie, also ab 1010 km), hilft auch Füttern nicht – die Fütterschleife liefe endlos. Solche Etappen lehnst du **vor dem Fliegen** ab: Meldung `"Etappe zu lang für dieses Team"`, nicht fliegen, nichts abladen, weiter zur nächsten Etappe.
 5. Fliegen, am Ort abladen und ausgeben, was geliefert wurde.
 6. Am Schluss eine Tourübersicht: abgelieferte Geschenke, Gesamtdistanz, Energie pro Rentier.
 

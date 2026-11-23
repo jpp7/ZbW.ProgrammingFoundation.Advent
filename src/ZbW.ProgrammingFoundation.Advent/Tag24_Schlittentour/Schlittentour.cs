@@ -9,6 +9,8 @@ namespace ZbW.ProgrammingFoundation.Advent.Tag24_Schlittentour;
 //   - Sleigh mit MaxLoad, privater List<Gift>, Load, Unload, CurrentLoad, GiftCount
 //   - Team als List<Reindeer>, Tour als Dictionary<string, int>
 //   - Vor jeder Etappe Energie prüfen, bei Bedarf füttern
+//   - Etappe braucht mehr als die maximale Energie (100)? Vor dem Fliegen ablehnen:
+//     "Etappe zu lang für dieses Team" – sonst wird endlos gefüttert
 //   - Tourübersicht: Geschenke, Gesamtdistanz, Energie pro Rentier
 // ============================================================
 

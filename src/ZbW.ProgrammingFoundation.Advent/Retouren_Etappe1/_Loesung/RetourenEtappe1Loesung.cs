@@ -13,7 +13,8 @@ public enum ReturnReason
 
 /// <summary>
 ///   Musterlösung: Retouren-Werkstatt, Etappe 1 – Retouren erfassen.
-///   Bewusst nur mit Stoff bis Block 03: alles in einer Methode, Schleifen und Listen.
+///   Bewusst ohne eigene Methoden: alles in einer Methode, Schleifen (Block 01–03)
+///   und Listen (Block 05).
 /// </summary>
 public static class RetourenEtappe1Loesung
 {
@@ -33,7 +34,13 @@ public static class RetourenEtappe1Loesung
     List<ReturnReason> reasons = new List<ReturnReason>();
 
     bool isRunning = true;
-    while (isRunning)
+
+    // Liefert Console.ReadLine() null, ist die Eingabe zu Ende (z. B. Ctrl+Z oder
+    // umgeleitete Eingabe). Danach kommt nie mehr etwas – also sauber aufhören,
+    // statt endlos weiterzufragen.
+    bool isInputClosed = false;
+
+    while (isRunning && !isInputClosed)
     {
       Console.WriteLine("\n1 = Retoure erfassen, 2 = Retouren anzeigen, 0 = Beenden");
       Console.Write("Auswahl: ");
@@ -41,7 +48,7 @@ public static class RetourenEtappe1Loesung
 
       if (choice == null)
       {
-        // Eingabe beendet (z. B. umgeleitete Eingabe zu Ende).
+        isInputClosed = true;
         break;
       }
 
@@ -49,36 +56,67 @@ public static class RetourenEtappe1Loesung
       {
         case "1":
           // --- Kind ---
-          string child;
+          string child = "";
           do
           {
             Console.Write("Kind: ");
-            child = (Console.ReadLine() ?? "").Trim();
+            string childInput = Console.ReadLine();
+            if (childInput == null)
+            {
+              isInputClosed = true;
+              break;
+            }
+
+            child = childInput.Trim();
             if (child == "")
             {
               Console.WriteLine("Der Name darf nicht leer sein.");
             }
           } while (child == "");
 
+          if (isInputClosed)
+          {
+            break;
+          }
+
           // --- Artikel ---
-          string article;
+          string article = "";
           do
           {
             Console.Write("Artikel: ");
-            article = (Console.ReadLine() ?? "").Trim();
+            string articleInput = Console.ReadLine();
+            if (articleInput == null)
+            {
+              isInputClosed = true;
+              break;
+            }
+
+            article = articleInput.Trim();
             if (article == "")
             {
               Console.WriteLine("Der Artikel darf nicht leer sein.");
             }
           } while (article == "");
 
+          if (isInputClosed)
+          {
+            break;
+          }
+
           // --- Preis ---
-          decimal price;
+          decimal price = 0;
           bool isPriceValid = false;
           do
           {
             Console.Write("Preis in CHF: ");
-            if (!decimal.TryParse(Console.ReadLine(), out price))
+            string priceInput = Console.ReadLine();
+            if (priceInput == null)
+            {
+              isInputClosed = true;
+              break;
+            }
+
+            if (!decimal.TryParse(priceInput, out price))
             {
               Console.WriteLine("Das ist kein gültiger Betrag.");
             }
@@ -92,6 +130,11 @@ public static class RetourenEtappe1Loesung
             }
           } while (!isPriceValid);
 
+          if (isInputClosed)
+          {
+            break;
+          }
+
           // --- Grund ---
           ReturnReason reason = ReturnReason.Disliked;
           bool isReasonValid = false;
@@ -99,10 +142,15 @@ public static class RetourenEtappe1Loesung
           {
             Console.WriteLine("Grund: 1 = falsche Grösse, 2 = doppelt, 3 = defekt, 4 = gefällt nicht");
             Console.Write("Grund: ");
-            string reasonInput = (Console.ReadLine() ?? "").Trim();
+            string reasonInput = Console.ReadLine();
+            if (reasonInput == null)
+            {
+              isInputClosed = true;
+              break;
+            }
 
             isReasonValid = true;
-            switch (reasonInput)
+            switch (reasonInput.Trim())
             {
               case "1":
                 reason = ReturnReason.WrongSize;
@@ -122,6 +170,11 @@ public static class RetourenEtappe1Loesung
                 break;
             }
           } while (!isReasonValid);
+
+          if (isInputClosed)
+          {
+            break;
+          }
 
           children.Add(child);
           articles.Add(article);
@@ -161,6 +214,11 @@ public static class RetourenEtappe1Loesung
           Console.WriteLine("Unbekannte Auswahl. Bitte 1, 2 oder 0 eingeben.");
           break;
       }
+    }
+
+    if (isInputClosed)
+    {
+      Console.WriteLine("\nEingabe beendet.");
     }
 
     Console.WriteLine("Retouren-Werkstatt geschlossen.");
